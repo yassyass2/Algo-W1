@@ -8,8 +8,14 @@ public class NumArray1D<T> : Array1D<T>, INumArray1D<T> where T : IComparable<T>
   
     public T? Aggregate(Func<T, T, T> fx)
     {
-        //ToDo
-        throw new NotImplementedException();
+        if (_index == 0) return default(T);
+
+        T result = _data[0];
+        for (int i = 1; i < _index; i++)
+        {
+            result = fx(result, _data[i]);
+        }
+        return result;
     }
 
     public T? Max()
