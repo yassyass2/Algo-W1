@@ -20,14 +20,28 @@ public class NumArray1D<T> : Array1D<T>, INumArray1D<T> where T : IComparable<T>
 
     public T? Max()
     {
-        //ToDo
-        throw new NotImplementedException();
+        if (_index == 0) return default(T);
+        T result = _data[0];
+        for (int i = 1; i < _index; i++)
+        {
+            if (_data[i] > result){
+                result = _data[i];
+            }
+        }
+        return result;
     }
 
     public T? Min()
     {
-        //ToDo
-        throw new NotImplementedException();
+        if (_index == 0) return default(T);
+        T result = _data[0];
+        for (int i = 1; i < _index; i++)
+        {
+            if (_data[i] < result){
+                result = _data[i];
+            }
+        }
+        return result;
     }
 
     public T? Product(bool IgnoreZeros = true)
