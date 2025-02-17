@@ -16,10 +16,10 @@ public class Array1D<T> : IArray1D<T> where T : IEquatable<T>
     }
 
     public int Length =>
-        _data.Length
+        _data.Length;
 
     public int Count =>
-        _index
+        _index;
 
     public int Find(T Item, int startIndex = 0)
     {
