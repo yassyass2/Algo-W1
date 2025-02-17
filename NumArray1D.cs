@@ -46,13 +46,26 @@ public class NumArray1D<T> : Array1D<T>, INumArray1D<T> where T : IComparable<T>
 
     public T? Product(bool IgnoreZeros = true)
     {
-        //ToDo
-        throw new NotImplementedException();
+        if (_index == 0) return default(T);
+        T result = T.One;
+        for (int i = 0; i < _index; i++)
+        {
+            if (IgnoreZeros && _data[i] == T.Zero){
+                continue;
+            }
+            result = result * _data[i];
+        }
+        return result;
     }
 
     public T? Sum()
     {
-        //ToDo
-        throw new NotImplementedException();
+        if (_index == 0) return default(T);
+        T result = _data[0];
+        for (int i = 1; i < _index; i++)
+        {
+            result += _data[i];
+        }
+        return result;
     }
 }
