@@ -26,7 +26,31 @@ public static void Bubble(int [] arr){
     }
 }
 
-public static void Merge(int[] arr){
-    if (arr == null || arr.Length <= 1) return;
-    
+public static void Split (int l, int h){
+    if (l>=h) return;
+    int m = (l+h)/2;
+    Split(l, m);
+    Split(m+1, h)
+}
+
+public static int[] Merge(int[] arr1, int[] arr2){
+    if (arr1 == null || arr2 == null) return;
+    int finalsize = arr1.Length + arr2.Length;
+    int[] result = new int[finalsize];
+
+    int x = 0;
+    int y = 0;
+    for(int i = 0; i < finalsize; i++){
+        if (x < arr1.Length && y < arr2.Length){
+            if(arr1[x] < arr2[y]){
+            result[i] = arr1[x];
+            x++
+            }
+            else{
+                result[i] = arr2[y];
+                y++
+            }
+        }
+        
+    }
 }
